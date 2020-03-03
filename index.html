@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>FindPark</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <h1 class="navbar ml-2">FindPark</h2>
+
+    <div class="d-flex justify-content-end">
+
+      <button class="mr-4 rounded ">
+        <a class="nav-link ">sign in</a>
+      </button>
+      <button class="rounded">
+        <a class="nav-link">sign up</a>
+      </button>
+
+    </div>
+  </nav>
+  <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+    <label id="color1" class="btn ">
+      <input type="radio" name="options" id="option1" checked> Parking de la comédie
+    </label>
+    <label id="color" class="btn">
+      <input type="radio" name="options" id="option1"> Parking de la préfecture
+    </label>
+  </div>
+  <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+    <label id="color" class="btn  active">
+      <input class="button" type="radio" name="options" id="option1" checked> Parking de la comédie
+    </label>
+    <label id="color1" class="btn ">
+      <input type="radio" name="options" id="option1"> Parking de la préfecture
+    </label>
+  </div>
+  <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+    <label id="color1" class="btn">
+      <input type="radio" name="options" id="option1" checked> Parking de la comédie
+    </label>
+    <label id="color" class="btn">
+      <input type="radio" name="options" id="option1"> Parking de la préfecture
+    </label>
+  </div>
+  <div class="w3-container">
+  
+    
+    <button onclick="myFunction('Demo1')" class="w3-btn w3-block w3-black w3">
+    <img src="images/triangle.png"></button>
+    
+    <div id="Demo1" class="w3-hide ">
+      <a class="w3-button btn-group btn-group-toggle w-100 p-0" <div class="btn-group btn-group-toggle " >
+        <label id="color" class="btn w-50">
+          <input type="radio" name="options" id="option1"> Parking de la préfecture
+        </label>
+        <label  id="color1" class="btn w-50">
+          <input  type="radio" name="options" id="option1" checked> Parking de la comédie
+        </label>
+       
+      </a>
+      <a class="w3-button btn-group btn-group-toggle w-100 p-0" <div class="btn-group btn-group-toggle " >
+        <label  id="color1" class="btn w-50">
+          <input  type="radio" name="options" id="option1" checked> Parking de la comédie
+        </label>
+        <label id="color" class="btn w-50">
+          <input type="radio" name="options" id="option1"> Parking de la préfecture
+        </label>
+      </a>
+      <a class="w3-button btn-group btn-group-toggle w-100 p-0" <div class="btn-group btn-group-toggle " >
+        <label id="color" class="btn w-50">
+          <input type="radio" name="options" id="option1"> Parking de la préfecture
+        </label>
+        <label  id="color1" class="btn w-50">
+          <input  type="radio" name="options" id="option1" checked> Parking de la comédie
+        </label>
+      
+      </a>
+    
+    </div>
+    
+    </div>
+   
+  </div>
+
+
+
+      <div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92442.4927558489!2d3.8041210301976136!3d43.6101248662677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b6af0725dd9db1%3A0xad8756742894e802!2sMontpellier!5e0!3m2!1sfr!2sfr!4v1582712525002!5m2!1sfr!2sfr"
+          width="100%" height="1590" frameborder="0" style="border:0;" allowfullscreen=""> </iframe>
+         
+      </div>
+      <div class="search"><p>Rechercher</p></div>
+      <input class="pt-2 w-100" type="text" placeholder="Search..">
+      <script src="script.js"></script>
+      <script src="app.js">
+        
+      </script>
+</body>
+
+</html>
