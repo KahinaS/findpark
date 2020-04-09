@@ -20,8 +20,8 @@ h1 p {
 
 }
 
-#color, .color {
-    background-color: #25b4b1;
+.color {
+    background-color: #25b4b1 !important;
 
 }
 

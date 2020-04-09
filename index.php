@@ -38,7 +38,7 @@
 				<input type="radio" name="options" id="option1"> Pitot
 			</label> -->
 			<button class="btn color1 w-50" id="ARCT">Arc de Triomphe</button>
-			<button class="btn-primary w-50" id="PITO">Pitot</button>
+			<button class="btn color w-50" id="PITO">Pitot</button>
 		</div>
 
 		<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
@@ -48,8 +48,8 @@
 			<label id="color1" class="btn w-50 ">
 				<input type="radio" name="options" id="option1"> Arceaux
 			</label> -->
-			<button class="btn-primary w-50" id="COME">Comédie</button>
-			<button class="btn-secondary w-50" id="arceaux">Arceaux (non disponible)</button> <!-- c'est le parking pitot ? -->
+			<button class="btn color w-50" id="COME">Comédie</button>
+			<button class="btn color1 w-50" id="arceaux">Arceaux (non disponible)</button> <!-- c'est le parking pitot ? -->
 		</div>
 
 		<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
@@ -59,8 +59,8 @@
 			<label id="color" class="btn w-50">
 				<input type="radio" name="options" id="option1"> Nombre d'Or
 			</label> -->
-			<button class="btn-secondary w-50" id="CORU">Corum</button>
-			<button class="btn-primary w-50" id="or">Nombre d'Or (non disponible)</button> <!-- c'est le parking d'anitgone ? -->
+			<button class="btn color1 w-50" id="CORU">Corum</button>
+			<button class="btn color w-50" id="or">Nombre d'Or (non disponible)</button> <!-- c'est le parking d'anitgone ? -->
 		</div>
 	</div>
 
@@ -80,8 +80,8 @@
 
 			</a> -->
 			<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-				<button class="btn-primary w-50" id="polygone">Polygone (non disponible)</button> <!-- Parking privé (non TAM) -->
-				<button class="btn-secondary w-50" id="EURO">Europa</button>
+				<button class="btn color w-50" id="polygone">Polygone (non disponible)</button> <!-- Parking privé (non TAM) -->
+				<button class="btn color1 w-50" id="EURO">Europa</button>
 			</div>
 			<!-- <a class="w3-button btn-group btn-group-toggle w-100 p-0">
 				<label id="color1" class="btn w-50">
@@ -92,8 +92,8 @@
 				</label>
 			</a> -->
 			<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-				<button class="btn-secondary w-50" id="FOCH">Foch Préfecture</button>
-				<button class="btn-primary w-50" id="GAMB">Gambetta</button>
+				<button class="btn color1 w-50" id="FOCH">Foch Préfecture</button>
+				<button class="btn color w-50" id="GAMB">Gambetta</button>
 			</div>
 			<!-- <a class="w3-button btn-group btn-group-toggle w-100 p-0">
 				<label id="color" class="btn w-50">
@@ -105,8 +105,8 @@
 
 			</a> -->
 			<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-				<button class="btn-primary w-50" id="laissac">Laissac (fermé)</button>
-				<button class="btn-secondary w-50" id="TRIA">Triangle</button>
+				<button class="btn color w-50" id="laissac">Laissac (fermé)</button>
+				<button class="btn color1 w-50" id="TRIA">Triangle</button>
 			</div>
 
 		</div>
