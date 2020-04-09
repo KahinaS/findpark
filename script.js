@@ -5,6 +5,9 @@
 // .then(response => console.log(response.results))
 // .catch(error => console.log(error));
 
+let groupeBoutons1 = document.getElementById("groupeBoutons");
+let groupeBoutons2 = document.getElementById("Demo1");
+
 function myFunction(id) {
     var x = document.getElementById(id);
     if (x.className.indexOf("w3-show") == -1) {
@@ -12,5 +15,28 @@ function myFunction(id) {
     } else { 
       x.className = x.className.replace(" w3-show", "");
     }
-  }
- 
+}
+
+function trouverPlacesLibres(e) {
+	let proxyurl = "https://cors-anywhere.herokuapp.com/";
+	let url = "http://data.montpellier3m.fr/sites/default/files/ressources/FR_MTP_"+e.target.id+".xml";
+	let urlFinale = proxyurl + url;
+	let requeteHTTP = new XMLHttpRequest();
+	requeteHTTP.open("GET", urlFinale, false);
+	requeteHTTP.setRequestHeader("Conteent-Type", "text/xml");
+	requeteHTTP.send(null);
+	let reponse = requeteHTTP.responseXML;
+	if(reponse === null) {
+		alert("Données non disponibles");
+	}
+	else {
+		let placesDisponibles = reponse.childNodes[0].children[3].textContent.toString();
+		/* response.childNodes[0] ---> racine
+		.children[3] ---> 4e balise enfant de la racine ---> nombre de places libres
+		.textContent.toString() ---> transforme le résultat obtenu en string pour pouvoir l'afficher */
+		let message = "Il y a " + placesDisponibles + " places libres dans le parking " + e.target.value + ".";
+		alert(message);
+	}
+}
+groupeBoutons1.onclick = trouverPlacesLibres;
+groupeBoutons2.onclick = trouverPlacesLibres;
