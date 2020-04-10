@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 	<meta charset="UTF-8">
@@ -16,6 +16,12 @@
 	<nav class="navbar">
 		<h1 class="navbar ml-2">FindPark <p>Montpellier</p>
 			</h1>
+
+			<div class="search">
+				<p>Rechercher</p>
+				<input class="pt-2 w-100" type="text" placeholder="..">
+			</div>
+			
 
 			<div class="d-flex justify-content-end">
 
@@ -37,7 +43,8 @@
 			<label id="color" class="btn w-50">
 				<input type="radio" name="options" id="option1"> Pitot
 			</label> -->
-			<button class="btn color1 w-50" id="ARCT">Arc de Triomphe</button>
+			<button class="btn color1 w-50" id="ARCT">Arc de Triomphe
+			</button>
 			<button class="btn color w-50" id="PITO">Pitot</button>
 		</div>
 
@@ -65,9 +72,6 @@
 	</div>
 
 	<div class="w3-container">
-
-		<button onclick="myFunction('Demo1')" class="w3-btn w3-block w3-black w3">
-			<img src="images/triangle.png"></button>
 
 		<div id="Demo1" class="w3-hide ">
 			<!-- <a class="w3-button btn-group btn-group-toggle w-100 p-0">
@@ -110,6 +114,8 @@
 			</div>
 
 		</div>
+		<button onclick="myFunction('Demo1')" class="w3-btn w3-block w3-black w3">
+			<img src="images/triangle.png"></button>
 
 	</div>
 
@@ -118,16 +124,12 @@
 
 
 	<div id="map"></div>
-	<div class="search">
-		<p>Rechercher</p>
-	</div>
-	<input class="pt-2 w-100" type="text" placeholder="..">
+
 	<script src="script.js"></script>
 	<script src="app.js">
 
 	</script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
-  		type="text/javascript"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv_PojW_2qKncUAIMj5kJXFEjCd0aIDWM&callback=initMap" type="text/javascript"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
