@@ -15,16 +15,16 @@
 </head>
 
 <body>
-  <nav class="navbar">
-    <h1 class="navbar ml-2">FindPark <p>Montpellier</p></h2>
+  <nav class="navbar" href="/">
+    <h1 class="navbar ml-2">FindPark <p>Montpellier</p></h1>
     
     <div class="d-flex justify-content-end">
 
       <button class="mr-4 rounded ">
-        <a class="nav-link ">sign in</a>
+        <a class="nav-link" href="inscription.php">S'inscrire</a>
       </button>
       <button class="rounded">
-        <a class="nav-link">sign up</a>
+        <a class="nav-link"href="connexion.php">Se connecter</a>
       </button>
 
     </div>
