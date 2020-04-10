@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body id="main">
 	<nav class="navbar">
 		<h1 class="navbar ml-2">FindPark <p>Montpellier</p>
 			</h1>
