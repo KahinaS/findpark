@@ -37,80 +37,58 @@
 
 	<div id="groupeBoutons">
 		<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-			<!-- <label id="color1" class="btn w-50">
-				<input type="radio" name="options" id="option1" checked> Arc de Triomphe
-			</label>
-			<label id="color" class="btn w-50">
-				<input type="radio" name="options" id="option1"> Pitot
-			</label> -->
 			<button class="btn color1 w-50" id="ARCT">Arc de Triomphe
 			</button>
 			<button class="btn color w-50" id="PITO">Pitot</button>
 		</div>
 
 		<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-			<!-- <label id="color" class="btn w-50 active">
-				<input class="button" type="radio" name="options" id="option1" checked> Comédie
-			</label>
-			<label id="color1" class="btn w-50 ">
-				<input type="radio" name="options" id="option1"> Arceaux
-			</label> -->
 			<button class="btn color w-50" id="COME">Comédie</button>
-			<button class="btn color1 w-50" id="arceaux">Arceaux (non disponible)</button> <!-- c'est le parking pitot ? -->
+			<button class="btn color1 w-50" id="ANTI">Antigone</button> <!-- c'est le parking pitot ? -->
 		</div>
 
 		<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-			<!-- <label id="color1" class="btn w-50">
-				<input type="radio" name="options" id="option1" checked> Corum
-			</label>
-			<label id="color" class="btn w-50">
-				<input type="radio" name="options" id="option1"> Nombre d'Or
-			</label> -->
 			<button class="btn color1 w-50" id="CORU">Corum</button>
-			<button class="btn color w-50" id="or">Nombre d'Or (non disponible)</button> <!-- c'est le parking d'anitgone ? -->
+			<button class="btn color w-50" id="EURO">Europa</button> <!-- c'est le parking d'anitgone ? -->
 		</div>
 	</div>
 
 	<div class="w3-container">
 
 		<div id="Demo1" class="w3-hide ">
-			<!-- <a class="w3-button btn-group btn-group-toggle w-100 p-0">
-				<label id="color" class="btn w-50">
-					<input type="radio" name="options" id="option1"> Polygone
-				</label>
-				<label id="color1" class="btn w-50">
-					<input type="radio" name="options" id="option1" checked> Europa
-				</label>
-
-			</a> -->
 			<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-				<button class="btn color w-50" id="polygone">Polygone (non disponible)</button> <!-- Parking privé (non TAM) -->
+				<button class="btn color w-50" id="GARE">Gare</button> <!-- Parking privé (non TAM) -->
 				<button class="btn color1 w-50" id="EURO">Europa</button>
 			</div>
-			<!-- <a class="w3-button btn-group btn-group-toggle w-100 p-0">
-				<label id="color1" class="btn w-50">
-					<input type="radio" name="options" id="option1" checked> Foch Préfecture
-				</label>
-				<label id="color" class="btn w-50">
-					<input type="radio" name="options" id="option1"> Gambetta
-				</label>
-			</a> -->
+
 			<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
 				<button class="btn color1 w-50" id="FOCH">Foch Préfecture</button>
 				<button class="btn color w-50" id="GAMB">Gambetta</button>
 			</div>
-			<!-- <a class="w3-button btn-group btn-group-toggle w-100 p-0">
-				<label id="color" class="btn w-50">
-					<input type="radio" name="options" id="option1"> Laissac
-				</label>
-				<label id="color1" class="btn w-50">
-					<input type="radio" name="options" id="option1" checked> Triangle
-				</label>
-
-			</a> -->
+			
 			<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-				<button class="btn color w-50" id="laissac">Laissac (fermé)</button>
+				<button class="btn color w-50" id="CIRC">Circé</button>
 				<button class="btn color1 w-50" id="TRIA">Triangle</button>
+			</div>
+
+			<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+				<button class="btn color1 w-50" id="SABI">Sabines</button>
+				<button class="btn color w-50" id="GARC">Garia Lorca</button>
+			</div>
+
+			<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+				<button class="btn color w-50" id="SABL">Sablassou</button>
+				<button class="btn color1 w-50" id="MOSS">Mosson</button>
+			</div>
+
+			<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+				<button class="btn color1 w-50" id="MEDC">Europédecine</button>
+				<button class="btn color w-50" id="OCCI">Occitanie</button>
+			</div>
+
+			<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+				<button class="btn color w-50" id="GA109">Gaumont Est</button>
+				<button class="btn color1 w-50" id="GA250">Gaumont Ouest</button>
 			</div>
 
 		</div>
