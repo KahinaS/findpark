@@ -1,12 +1,14 @@
 <?php
 include "head.php";
-include_once("BDD/connexiondb.php");
+include_once("db/connexiondb.php");
 if(!empty($_POST)){
     extract($_POST);
      $valid = (boolean) true;
      if(isset($_POST['inscription'])){
          $pseudo = (String) trim($pseudo);
          $mail = (String) trim($pseudo);
+         $nom = (String) trim($nom);
+         $prenom = (String) trim($prenom);
          $password = (String) trim($password);
          $jour = (int) $jour;
          $mois = (int) $mois;
@@ -20,17 +22,44 @@ if(!empty($_POST)){
             $valid = false;
             $err_mail = "Veuillez renseigner ce champs !";
         }
+        if(empty($nom)){
+            $valid = false;
+            $err_nom = "Veuillez renseigner ce champs !";
+        }
+        if(empty($prenom)){
+            $valid = false;
+            $err_prenom = "Veuillez renseigner ce champs !";
+        }
         if(empty($password)){
             $valid = false;
             $err_password = "Veuillez renseigner ce champs !";
         }
         $verif_jour = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31);
-        if(empty($pseudo)){
+        if(!in_array($jour, $verif_jour)){
             $valid = false;
-            $err_pseudo = "Veuillez renseigner ce champs !";
+            $err_jour = "Veuillez renseigner ce champs !";
+        }
+        $verif_mois = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+        if(!in_array($mois, $verif_mois)){
+            $valid = false;
+            $err_mois = "Veuillez renseigner ce champs !";
+        }
+        $verif_annee = array(2000, 1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987, 1986, 1985, 1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976, 1975, 1974, 1973, 1972, 1971, 1970, 1969, 1968, 1967, 1966, 1965, 1964);
+        if(!in_array($annee, $verif_annee)){
+            $valid = false;
+            $err_annee = "Veuillez renseigner ce champs !";
+        }
+        if(!checkdate($jour, $mois, $annee)){
+            $valid = false;
+            $err_date = "Veuillez renseigner une date correct !";
+        }
+        else{
+            $date_naissance = $annee . '-' . $mois . '-' . $jour;
         }
          if($valid){
-
+           $date_inscription = date("Y-m-d");
+           $req = $BDD->prepare("INSERT INTO utilisateur (pseudo, mail, password, nom, prenom, date_naissance, date_inscription) VALUES (?, ?, ?, ?, ?, ?, ?)");
+           $req->execute($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription );
          }
      }
 }
@@ -61,6 +90,7 @@ if(!empty($_POST)){
         <section class='container'>
 
             <div class='row'>
+           
                 <div class="col-lg-12">
                     <div class="form-heading col-9">
                         <h1 class="prg"><p>Remplir le formulaire</p></h1>
@@ -72,6 +102,11 @@ if(!empty($_POST)){
                 <div class="col-lg-6">
                    
                     <div class="form-group">
+                    <?php
+                    if(isset($err_pseudo)){
+                    echo $err_pseudo;
+                }
+                    ?>
                         <label for="pseudo">Pseudo:</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="pseudo" required>
@@ -96,9 +131,10 @@ if(!empty($_POST)){
                         </div>
                     </div>
                     <div class="form-group">
+                   
                         <label >Vérifier l'email:</label>
                         <div class="col-sm-8">
-                            <input type="mail" class="form-control" name="mail2" id="email2" required>
+                            <input type="mail" class="form-control" name="mail" id="email2" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -110,11 +146,11 @@ if(!empty($_POST)){
                     <div class="form-group">
                         <label >Vérifier le mot de passe:</label>
                         <div class="col-sm-8">
-                            <input type="password" class="form-control" name="password2" id="password"  required>
+                            <input type="password" class="form-control" name="password" id="password"  required>
                         </div>
                     </div>
                     <div>
-                    <label for="mail" >Date de naissance:</label>
+                    <label >Date de naissance:</label>
                   <select name="jour">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -150,57 +186,57 @@ if(!empty($_POST)){
                    </select>
                         <select name="mois">
                         <option value="1">1</option>
-                        <option value="1">2</option>
-                        <option value="1">3</option>
-                        <option value="1">4</option>
-                        <option value="1">5</option>
-                        <option value="1">6</option>
-                        <option value="1">7</option>
-                        <option value="1">8</option>
-                        <option value="1">9</option>
-                        <option value="1">10</option>
-                        <option value="1">11</option>
-                        <option value="1">12</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
                    </select>
-                   <select name="année">
+                   <select name="annee">
                        <option value="1">année</option>
-                        <option value="1">2000</option>
-                        <option value="1">1999</option>
-                        <option value="1">1998</option>
-                        <option value="1">1997</option>
-                        <option value="1">1996</option>
-                        <option value="1">1995</option>
-                        <option value="1">1994</option>
-                        <option value="1">1993</option>
-                        <option value="1">1992</option>
-                        <option value="1">1991</option>
-                        <option value="1">1990</option>
-                        <option value="1">1989</option>
-                        <option value="1">1988</option>
-                        <option value="1">1987</option>
-                        <option value="1">1986</option>
-                        <option value="1">1985</option>
-                        <option value="1">1984</option>
-                        <option value="1">1983</option>
-                        <option value="1">1982</option>
-                        <option value="1">1981</option>
-                        <option value="1">1980</option>
-                        <option value="1">1979</option>
-                        <option value="1">1978</option>
-                        <option value="1">1977</option>
-                        <option value="1">1976</option>
-                        <option value="1">1975</option>
-                        <option value="1">1974</option>
-                        <option value="1">1973</option>
-                        <option value="1">1972</option>
-                        <option value="1">1971</option>
-                        <option value="1">1970</option>
-                        <option value="1">1969</option>
-                        <option value="1">1968</option>
-                        <option value="1">1967</option>
-                        <option value="1">1966</option>
-                        <option value="1">1965</option>
-                        <option value="1">1964</option>
+                        <option value="2000">2000</option>
+                        <option value="1999">1999</option>
+                        <option value="1998">1998</option>
+                        <option value="1997">1997</option>
+                        <option value="1996">1996</option>
+                        <option value="1995">1995</option>
+                        <option value="1994">1994</option>
+                        <option value="1993">1993</option>
+                        <option value="1992">1992</option>
+                        <option value="1991">1991</option>
+                        <option value="1990">1990</option>
+                        <option value="1989">1989</option>
+                        <option value="1988">1988</option>
+                        <option value="1987">1987</option>
+                        <option value="1986">1986</option>
+                        <option value="1985">1985</option>
+                        <option value="1984">1984</option>
+                        <option value="1983">1983</option>
+                        <option value="1982">1982</option>
+                        <option value="1981">1981</option>
+                        <option value="1980">1980</option>
+                        <option value="1979">1979</option>
+                        <option value="1978">1978</option>
+                        <option value="1977">1977</option>
+                        <option value="1976">1976</option>
+                        <option value="1975">1975</option>
+                        <option value="1974">1974</option>
+                        <option value="1973">1973</option>
+                        <option value="1972">1972</option>
+                        <option value="1971">1971</option>
+                        <option value="1970">1970</option>
+                        <option value="1969">1969</option>
+                        <option value="1968">1968</option>
+                        <option value="1967">1967</option>
+                        <option value="1966">1966</option>
+                        <option value="1965">1965</option>
+                        <option value="1964">1964</option>
                    </select>
                         <!--</form>-->
 

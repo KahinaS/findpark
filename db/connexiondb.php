@@ -6,7 +6,7 @@ class connexionDB {
     private $pass   = '';
     private $connexion;
 
-    function __construct($host = null, $name = null, $user = null, $passw = null){
+    function __construct($host = null, $name = null, $user = null, $pass = null){
         if($host != null){
             $this->host = $host;
             $this->name = $name;
@@ -16,11 +16,11 @@ class connexionDB {
         try{
             $this->connexion = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->name,
             $this->user, $this->pass); 
-        
+        //    , array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8MB4', PDO::ATTR_ERRMODE)
 
         }
         catch (PDOException $e){
-            echo 'Erreur : Impossible de se connecter à la BDD!';
+            echo 'Erreur : ' . $e->getMessage();
             die();
         }
     }
