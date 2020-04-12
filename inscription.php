@@ -12,7 +12,7 @@ if(!empty($_POST)){
          $password = (String) trim($password);
          $jour = (int) $jour;
          $mois = (int) $mois;
-         $annee = (int) $annee;
+         $annee = (int) $_POST['annee'];
          $date_naissance = (String) null;
          if(empty($pseudo)){
              $valid = false;
@@ -58,8 +58,8 @@ if(!empty($_POST)){
         }
          if($valid){
            $date_inscription = date("Y-m-d");
-           $req = $BDD->prepare("INSERT INTO utilisateur (pseudo, mail, password, nom, prenom, date_naissance, date_inscription) VALUES (?, ?, ?, ?, ?, ?, ?)");
-           $req->execute($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription );
+           $req = $BDD->prepare("INSERT INTO utilisateurs (pseudo, mail, password, nom, prenom, date_naissance, date_inscription) VALUES (?, ?, ?, ?, ?, ?, ?)");
+           $req->execute(array($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription ));
          }
      }
 }
