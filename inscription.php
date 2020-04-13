@@ -6,7 +6,7 @@ if(!empty($_POST)){
      $valid = (boolean) true;
      if(isset($_POST['inscription'])){
          $pseudo = (String) trim($pseudo);
-         $mail = (String) trim($pseudo);
+         $mail = (String) trim($mail);
          $nom = (String) trim($nom);
          $prenom = (String) trim($prenom);
          $password = (String) trim($password);
@@ -14,13 +14,34 @@ if(!empty($_POST)){
          $mois = (int) $mois;
          $annee = (int) $_POST['annee'];
          $date_naissance = (String) null;
+         $ville = (int) $ville;
          if(empty($pseudo)){
              $valid = false;
              $err_pseudo = "Veuillez renseigner ce champs !";
+         }else{
+             $req = $BDD->prepare("SELECT id
+             FROM utilisateurs
+             WHERE pseudo = ?");
+             $req->execute(array($pseudo));
+             $utilisateurs = $req->fetch();
+             if(isset($utilisateurs['id'])){
+                 $valid = false;
+                 $err_mail = "Ce pseudo existe déjà !";
+             }
          }
          if(empty($mail)){
             $valid = false;
             $err_mail = "Veuillez renseigner ce champs !";
+        }else{
+            $req = $BDD->prepare("SELECT id
+            FROM utilisateurs
+            WHERE mail = ?");
+            $req->execute(array($mail));
+            $utilisateurs = $req->fetch();
+            if(isset($utilisateurs['id'])){
+                $valid = false;
+                $err_pseudo = "Ce mail existe déjà !";
+            }
         }
         if(empty($nom)){
             $valid = false;
@@ -49,6 +70,13 @@ if(!empty($_POST)){
             $valid = false;
             $err_annee = "Veuillez renseigner ce champs !";
         }
+        echo $ville;
+        $verif_ville = array("Montpellier", "Béziers", "Sète", "Agde", "Lunel", "Frontignan", "Castelnau-le-Lez", "Mauguio", "Lattes", "Mèze", "Juvignac", "Le Crès", "Grabels", "Pérols", "Lavérune", "Saint-Jean-de-Védas", "Jacou");
+        if(!in_array($ville, $verif_ville)){
+            $valid = false;
+            $err_ville = "Veuillez renseigner ce champs !";
+        
+        }
         if(!checkdate($jour, $mois, $annee)){
             $valid = false;
             $err_date = "Veuillez renseigner une date correct !";
@@ -57,9 +85,10 @@ if(!empty($_POST)){
             $date_naissance = $annee . '-' . $mois . '-' . $jour;
         }
          if($valid){
-           $date_inscription = date("Y-m-d");
-           $req = $BDD->prepare("INSERT INTO utilisateurs (pseudo, mail, password, nom, prenom, date_naissance, date_inscription) VALUES (?, ?, ?, ?, ?, ?, ?)");
-           $req->execute(array($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription ));
+           $date_inscription = date("Y-m-d"); $password = crypt($password, '$6$rounds=5000$H4eoaj87enek720ndehbelman82jn83nN310$');
+          
+           $req = $BDD->prepare("INSERT INTO utilisateurs (pseudo, mail, password, nom, prenom, date_naissance, date_inscription, ville) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+           $req->execute(array($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription, $ville));
          }
      }
 }
@@ -89,14 +118,6 @@ if(!empty($_POST)){
     <form class="form-horizontal" role="form" method='post'>
         <section class='container'>
 
-            <div class='row'>
-           
-                <div class="col-lg-12">
-                    <div class="form-heading col-9">
-                        <h1 class="prg"><p>Remplir le formulaire</p></h1>
-                    </div>
-                </div>
-            </div>
             <div class='row'>
 
                 <div class="col-lg-6">
@@ -149,6 +170,7 @@ if(!empty($_POST)){
                             <input type="password" class="form-control" name="password" id="password"  required>
                         </div>
                     </div>
+
                     <div>
                     <label >Date de naissance:</label>
                   <select name="jour">
@@ -242,11 +264,29 @@ if(!empty($_POST)){
 
                     </div>
                  
-                </div>
-
+               <label>Choisir la commune</label>
+                <select name="ville">
+                        <option value="Montpellier">Montpellier</option>
+                        <option value="Béziers">Béziers</option>
+                        <option value="Sète">Sète</option>
+                        <option value="Agde">Agde</option>
+                        <option value="Lunel">Lunel</option>
+                        <option value="Frontignan">Frontignan</option>
+                        <option value="Castelnau-le-Lez">Castelnau-le-Lez</option>
+                        <option value="Maugio">Maugio</option>
+                        <option value="Lattes">Lattes</option>
+                        <option value="Mèze">Mèze</option>
+                        <option value="Juvignac">Juvignac</option>
+                        <option value="Le Crès">Le Crès</option>
+                        <option value="Grabels">Grabels</option>
+                        <option value="Pérols">Pérols</option>
+                        <option value="Lavérune">Lavérune</option>
+                        <option value="Saint-Jean-de-Védas">Saint-Jean-de-Védas</option>
+                        <option value="Jacou">Jacou</option>
+                        </select>
                </div>
-
-                <div class="col-xs-12">
+</div>
+                <div class="btn btn-outline-info">
                 <input type="submit" name="inscription" value="S'inscrire">
                 </div>
                 </section>
