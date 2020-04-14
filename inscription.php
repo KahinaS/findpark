@@ -70,13 +70,20 @@ if(!empty($_POST)){
             $valid = false;
             $err_annee = "Veuillez renseigner ce champs !";
         }
-        echo $ville;
-        $verif_ville = array("Montpellier", "Béziers", "Sète", "Agde", "Lunel", "Frontignan", "Castelnau-le-Lez", "Mauguio", "Lattes", "Mèze", "Juvignac", "Le Crès", "Grabels", "Pérols", "Lavérune", "Saint-Jean-de-Védas", "Jacou");
+      
+        $verif_ville = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17);
+        // "Montpellier", "Béziers", "Sète", "Agde", "Lunel", "Frontignan", "Castelnau-le-Lez", "Mauguio", "Lattes", "Mèze", "Juvignac", "Le Crès", "Grabels", "Pérols", "Lavérune", "Saint-Jean-de-Védas", "Jacou"
         if(!in_array($ville, $verif_ville)){
             $valid = false;
             $err_ville = "Veuillez renseigner ce champs !";
         
-        }
+         }
+         else{
+             $ville_array = array("Montpellier", "Béziers", "Sète", "Agde", "Lunel", "Frontignan", "Castelnau-le-Lez", "Mauguio", "Lattes", "Mèze", "Juvignac", "Le Crès", "Grabels", "Pérols", "Lavérune", "Saint-Jean-de-Védas", "Jacou");
+             $tmp = $ville_array[$ville -1];
+            
+             $ville = $tmp;
+         }
         if(!checkdate($jour, $mois, $annee)){
             $valid = false;
             $err_date = "Veuillez renseigner une date correct !";
@@ -266,23 +273,23 @@ if(!empty($_POST)){
                  
                <label>Choisir la commune</label>
                 <select name="ville">
-                        <option value="Montpellier">Montpellier</option>
-                        <option value="Béziers">Béziers</option>
-                        <option value="Sète">Sète</option>
-                        <option value="Agde">Agde</option>
-                        <option value="Lunel">Lunel</option>
-                        <option value="Frontignan">Frontignan</option>
-                        <option value="Castelnau-le-Lez">Castelnau-le-Lez</option>
-                        <option value="Maugio">Maugio</option>
-                        <option value="Lattes">Lattes</option>
-                        <option value="Mèze">Mèze</option>
-                        <option value="Juvignac">Juvignac</option>
-                        <option value="Le Crès">Le Crès</option>
-                        <option value="Grabels">Grabels</option>
-                        <option value="Pérols">Pérols</option>
-                        <option value="Lavérune">Lavérune</option>
-                        <option value="Saint-Jean-de-Védas">Saint-Jean-de-Védas</option>
-                        <option value="Jacou">Jacou</option>
+                        <option value="1">Montpellier</option>
+                        <option value="2">Béziers</option>
+                        <option value="3">Sète</option>
+                        <option value="4">Agde</option>
+                        <option value="5">Lunel</option>
+                        <option value="6">Frontignan</option>
+                        <option value="7">Castelnau-le-Lez</option>
+                        <option value="8">Maugio</option>
+                        <option value="9">Lattes</option>
+                        <option value="10">Mèze</option>
+                        <option value="11">Juvignac</option>
+                        <option value="12">Le Crès</option>
+                        <option value="13">Grabels</option>
+                        <option value="14">Pérols</option>
+                        <option value="15">Lavérune</option>
+                        <option value="16">Saint-Jean-de-Védas</option>
+                        <option value="17">Jacou</option>
                         </select>
                </div>
 </div>
