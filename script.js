@@ -94,6 +94,9 @@ function initMap() {
 		nomXML:'COME'
 	});
 	markersTab.push(marker_Come);
+	var infowindowCome = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Come)
+	});
 
 	var marker_Coru = new google.maps.Marker({
 		position: {lat: 43.61361, lng:3.88188 },
@@ -102,6 +105,9 @@ function initMap() {
 		nomXML:'CORU'
 	});
 	markersTab.push(marker_Coru);
+	var infowindowCoru = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Coru)
+	});
 
 	var marker_Euro = new google.maps.Marker({
 		position: {lat: 43.60803, lng:3.89408 },
@@ -110,6 +116,9 @@ function initMap() {
 		nomXML:'EURO'
 	});
 	markersTab.push(marker_Euro);
+	var infowindowEuro = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Euro)
+	});
 
 	var marker_Foch = new google.maps.Marker({
 		position: {lat: 43.61069, lng:3.87634 },
@@ -118,6 +127,9 @@ function initMap() {
 		nomXML:'FOCH'
 	});
 	markersTab.push(marker_Foch);
+	var infowindowFoch = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Foch)
+	});
 
 	var marker_Gamb = new google.maps.Marker({
 		position: {lat: 43.60865, lng:3.86753 },
@@ -126,6 +138,9 @@ function initMap() {
 		nomXML:'GAMB'
 	});
 	markersTab.push(marker_Gamb);
+	var infowindowGamb = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Gamb)
+	});
 
 	var marker_Gare = new google.maps.Marker({
 		position: {lat: 43.60362, lng:3.87899 },
@@ -134,6 +149,9 @@ function initMap() {
 		nomXML:'GARE'
 	});
 	markersTab.push(marker_Gare);
+	var infowindowGare = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Gare)
+	});
 
 	var marker_Tria = new google.maps.Marker({
 		position: {lat: 43.60933, lng:3.88201 },
@@ -142,6 +160,9 @@ function initMap() {
 		nomXML:'TRIA'
 	});
 	markersTab.push(marker_Tria);
+	var infowindowTria = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Tria)
+	});
 
 	var marker_Arct = new google.maps.Marker({
 		position: {lat: 43.61098, lng: 3.87312},
@@ -150,6 +171,9 @@ function initMap() {
 		nomXML: 'ARCT'
 	});
 	markersTab.push(marker_Arct);
+	var infowindowArct = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Arct)
+	});
 
 	var marker_Pito = new google.maps.Marker({
 		position: {lat: 43.61265, lng: 3.8709},
@@ -158,6 +182,9 @@ function initMap() {
 		nomXML: 'PITO'
 	});
 	markersTab.push(marker_Pito);
+	var infowindowPito = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Pito)
+	});
 
 	var marker_Circ = new google.maps.Marker({
 		position: {lat: 43.60513, lng: 3.91962}, 
@@ -166,6 +193,9 @@ function initMap() {
 		nomXML: 'CIRC'
 	});
 	markersTab.push(marker_Circ);
+	var infowindowCirc = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Circ)
+	});
 
 	var marker_Sabi = new google.maps.Marker({
 		position: {lat: 43.58488, lng: 3.86006},
@@ -174,6 +204,9 @@ function initMap() {
 		nomXML: 'SABI'
 	});
 	markersTab.push(marker_Sabi);
+	var infowindowSabi = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Sabi)
+	});
 
 	var marker_Garc = new google.maps.Marker({
 		position: {lat: 43.59051, lng: 3.89097},
@@ -182,6 +215,9 @@ function initMap() {
 		nomXML: 'GARC'
 	});
 	markersTab.push(marker_Garc);
+	var infowindowGarc = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Garc)
+	});
 
 	var marker_Moss = new google.maps.Marker({
 		position: {lat: 43.61648, lng: 3.81873},
@@ -190,6 +226,9 @@ function initMap() {
 		nomXML: 'MOSS'
 	});
 	markersTab.push(marker_Moss);
+	var infowindowMoss = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Moss)
+	});
 
 	var marker_Medc = new google.maps.Marker({
 		position: {lat: 43.63906, lng: 3.82818},
@@ -198,6 +237,9 @@ function initMap() {
 		nomXML: 'MEDC'
 	});
 	markersTab.push(marker_Medc);
+	var infowindowMedc = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Medc)
+	});
 
 	var marker_Occi = new google.maps.Marker({
 		position: {lat: 43.6357, lng: 3.84801},
@@ -206,6 +248,9 @@ function initMap() {
 		nomXML: 'OCCI'
 	});
 	markersTab.push(marker_Occi);
+	var infowindowOcci = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Occi)
+	});
 
 	var marker_Ga109 = new google.maps.Marker({
 		position: {lat: 43.60413, lng: 3.91696},  
@@ -214,6 +259,9 @@ function initMap() {
 		nomXML: 'GA109'
 	});
 	markersTab.push(marker_Ga109);
+	var infowindowGa109 = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Ga109)
+	});
 
 	var marker_Ga250= new google.maps.Marker({
 		position: {lat: 43.6044, lng: 3.91428},
@@ -222,78 +270,147 @@ function initMap() {
 		nomXML: 'GA250'
 	});
 	markersTab.push(marker_Ga250);
+	var infowindowGa250 = new google.maps.InfoWindow({
+		content: trouverPlacesLibresMap(marker_Ga250)
+	});
 
 	marker_Anti.addListener('click', function() {
 		infowindowAnti.open(map, marker_Anti);
 	});
 
 	marker_Come.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Come);
+		infowindowCome.open(map, marker_Come);
 	});
 
 	marker_Coru.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Coru);
+		infowindowCoru.open(map, marker_Coru);
 	});
 
 	marker_Euro.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Euro);
+		infowindowEuro.open(map, marker_Euro);
 	});
 
 	marker_Foch.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Foch);
+		infowindowFoch.open(map, marker_Foch);
 	});
 
 	marker_Gamb.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Gamb);
+		infowindowGamb.open(map, marker_Gamb);
 	});
 
 	marker_Gare.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Gare);
+		infowindowGare.open(map, marker_Gare);
 	});
 
 	marker_Tria.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Tria);
+		infowindowTria.open(map, marker_Tria);
 	});
 
 	marker_Arct.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Arct);
+		infowindowArct.open(map, marker_Arct);
 	});
 
 	marker_Pito.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Pito);
+		infowindowPito.open(map, marker_Pito);
 	});
 
 	marker_Circ.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Circ);
+		infowindowCirc.open(map, marker_Circ);
 	});
 
 	marker_Sabi.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Sabi);
+		infowindowSabi.open(map, marker_Sabi);
 	});
 
 	marker_Garc.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Garc);
+		infowindowGarc.open(map, marker_Garc);
 	});
 
 	marker_Moss.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Moss);
+		infowindowMoss.open(map, marker_Moss);
 	});
 
 	marker_Medc.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Medc);
+		infowindowMedc.open(map, marker_Medc);
 	});
 
 	marker_Occi.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Occi);
+		infowindowOcci.open(map, marker_Occi);
 	});
 
 	marker_Ga109.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Ga109);
+		infowindowGa109.open(map, marker_Ga109);
 	});
 
 	marker_Ga250.addListener('click', function() {
-		trouverPlacesLibresMap(marker_Ga250);
+		infowindowGa250.open(map, marker_Ga250);
 	});
+
+	// var bikeLayer = new google.maps.BicyclingLayer();
+	// bikeLayer.setMap(map);
+	  
+	// Create the search box and link it to the UI element.
+	// var input = document.getElementById('pac-input');
+	// var searchBox = new google.maps.places.SearchBox(input);
+	// map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+	// map.addListener('bounds_changed', function() {
+	// 	searchBox.setBounds(map.getBounds());
+	// });
+
+	// // Bias the SearchBox results towards current map's viewport.
+	// map.addListener('bounds_changed', function() {
+	// 	searchBox.setBounds(map.getBounds());
+	//   });
+
+	//   var markers = [];
+	//   // Listen for the event fired when the user selects a prediction and retrieve
+	//   // more details for that place.
+	//   searchBox.addListener('places_changed', function() {
+	// 	var places = searchBox.getPlaces();
+
+	// 	if (places.length == 0) {
+	// 	  return;
+	// 	}
+
+	// 	// Clear out the old markers.
+	// 	markers.forEach(function(marker) {
+	// 	  marker.setMap(null);
+	// 	});
+	// 	markers = [];
+
+	// 	// For each place, get the icon, name and location.
+	// 	var bounds = new google.maps.LatLngBounds();
+	// 	places.forEach(function(place) {
+	// 	  if (!place.geometry) {
+	// 		console.log("Returned place contains no geometry");
+	// 		return;
+	// 	  }
+	// 	  var icon = {
+	// 		url: place.icon,
+	// 		size: new google.maps.Size(71, 71),
+	// 		origin: new google.maps.Point(0, 0),
+	// 		anchor: new google.maps.Point(17, 34),
+	// 		scaledSize: new google.maps.Size(25, 25)
+	// 	  };
+
+	// 	  // Create a marker for each place.
+	// 	  markers.push(new google.maps.Marker({
+	// 		map: map,
+	// 		icon: icon,
+	// 		title: place.name,
+	// 		position: place.geometry.location
+	// 	  }));
+
+	// 	  if (place.geometry.viewport) {
+	// 		// Only geocodes have viewport.
+	// 		bounds.union(place.geometry.viewport);
+	// 	  } else {
+	// 		bounds.extend(place.geometry.location);
+	// 	  }
+	// 	});
+	// 	map.fitBounds(bounds);
+	// });
 }
 
 function zoomSurPoint(e) {
@@ -307,3 +424,12 @@ function zoomSurPoint(e) {
 }
 groupeBoutons1.onclick = zoomSurPoint;
 groupeBoutons2.onclick = zoomSurPoint;
+
+// let searchbar = document.getElementById("searchBar");
+// let dropdown = document.getElementById("myDropdown");
+
+// function afficherSousMenu() {
+// 	console.log("aaa");
+// 	dropdown.style.display = "block";
+// }
+// searchbar.onclick = afficherSousMenu;
