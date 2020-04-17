@@ -21,10 +21,10 @@
     <div class="d-flex justify-content-end">
 
       <button class="mr-4 rounded ">
-        <a class="nav-link" href="inscription.php">S'inscrire</a>
+        <a class="nav-link" href="view/inscription.php">S'inscrire</a>
       </button>
       <button class="rounded">
-        <a class="nav-link"href="connexion.php">Se connecter</a>
+        <a class="nav-link"href="view/connexion.php">Se connecter</a>
       </button>
 
     </div>
