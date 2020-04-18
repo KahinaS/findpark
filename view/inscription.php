@@ -11,7 +11,8 @@ include "head.php";
   </head>
 <body>
   <nav class="navbar" href="/">
-    <h1 class="navbar ml-2">FindPark <p>Montpellier</p></h2>
+  <h1 class="navbar ml-2"><a href="../index.php">FindPark<p>Montpellier</a></p> </h1>
+  
     <p class="navbar">Inscription</p>  
   </nav>
   
@@ -37,7 +38,7 @@ include "head.php";
                     echo $_SESSION["err_pseudo"];
                 }
                     ?>
-                        <label class="text-light" for="pseudo">Pseudo:</label>
+                        <label class="text-light" for="pseudo">Pseudo</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control " name="pseudo" value="<?php if(isset($_SESSION["pseudo"])){echo $_SESSION["pseudo"];}?>"required>
                         </div>
@@ -48,7 +49,7 @@ include "head.php";
                     echo $err_nom;
                 }
                     ?>
-                        <label for="nom" >Nom:</label>
+                        <label class="text-light" for="nom" >Nom</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="nom" id="nom" value="<?php if(isset($nom)){echo $nom;}?>" required> 
                         </div>
@@ -59,7 +60,7 @@ include "head.php";
                     echo $err_prenom;
                 }
                     ?>
-                        <label for="prenom">Prénom:</label>
+                        <label class="text-light" for="prenom">Prénom</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="prenom" id="prenom" value="<?php if(isset($prenom)){echo $prenom;}?>" required>
                         </div>
@@ -70,7 +71,7 @@ include "head.php";
                     echo $_SESSION["err_mail"];
                 }
                     ?>
-                        <label class="text-light">Email:</label>
+                        <label class="text-light">Email</label>
                         <div class="col-sm-8">
                             <input type="mail" class="form-control" name="mail" id="email" value="<?php if(isset($nom)){echo $nom;}?>" required>
                         </div>
@@ -81,29 +82,29 @@ include "head.php";
                     echo $_SESSION["err_mail"];
                 }
                     ?>
-                        <label class="text-light" >Vérifier l'email:</label>
+                        <label class="text-light" >Vérifier l'email</label>
                         <div class="col-sm-8">
                             <input type="mail" class="form-control" name="mail" id="email2" required>
                         </div>
                     </div>
                     <div class="form-group">
                     <?php
-                    if(isset($err_password)){
-                    echo $err_password;
+                    if(isset($_SESSION["err_password"])){
+                    echo $_SESSION["err_password"];
                 }
                     ?>
-                        <label >Mot de passe:</label>
+                        <label class="text-light">Mot de passe</label>
                         <div class="col-sm-8">
                             <input type="password" class="form-control" name="password" required>
                         </div>
                     </div>
                     <div class="form-group">
                     <?php
-                    if(isset($err_password)){
-                    echo $err_password;
+                    if(isset($_SESSION["err_password"])){
+                    echo $_SESSION["err_password"];
                 }
                     ?>
-                        <label >Vérifier le mot de passe:</label>
+                        <label class="text-light">Vérifier le mot de passe</label>
                         <div class="col-sm-8">
                             <input type="password" class="form-control" name="password" id="password"  required>
                         </div>
@@ -115,7 +116,7 @@ include "head.php";
                     echo $err_date;
                 }
                     ?>
-                    <label >Date de naissance:</label>
+                    <label class="text-light">Date de naissance</label>
                   <select name="jour">
                         <?php for($i = 1; $i <= 31; $i++) {
                             echo "<option value='".$i."'>".$i."</option>";
@@ -136,7 +137,7 @@ include "head.php";
 
                     </div>
                  
-               <label>Choisir la commune</label>
+               <label class="text-light">Choisir la commune</label>
                 <select name="ville">
                         <option value="1">Montpellier</option>
                         <option value="2">Béziers</option>

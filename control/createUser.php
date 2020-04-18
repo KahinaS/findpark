@@ -1,6 +1,8 @@
 <?php
 session_start();
+$_SESSION = array();
 include_once("../db/connexiondb.php");
+include_once("Constante.php");
 if(!empty($_POST)){
     extract($_POST);
      $valid = (boolean) true;
@@ -22,14 +24,8 @@ if(!empty($_POST)){
          }else{
              if(!$DB->isLoginFree($pseudo)){
                  $valid = false;
-                $_SESSION["err_pseudo"] = "Ce pseudo existe déjà !";
-             }
-             else{
-                 $_SESSION = array();
-             }
-            
-                
-             
+                $_SESSION["err_pseudo"] = Constant::$usernameTaken;
+             }     
          }
          
          if(empty($mail)){
@@ -38,32 +34,37 @@ if(!empty($_POST)){
         }else{
             if(!$DB->isLoginFree($mail)){
                 $valid = false;
-               $_SESSION["err_mail"] = "Cet email existe déjà !";
-            }
-            else{
-                $_SESSION = array();
-            }
-           
-               
+               $_SESSION["err_mail"] = Constant::$emailTaken;
+            }      
             
         }
-        //  if(empty($mail)){
-        //     $valid = false;
-        //     $err_mail = "Veuillez renseigner ce champs !";
-        // }else{
-        //     $req = $BDD->prepare("SELECT id
-        //     FROM utilisateurs
-        //     WHERE mail = ?");
-        //     $req->execute(array($mail));
-        //     $utilisateurs = $req->fetch();
-        //     if(isset($utilisateurs['id'])){
-        //         $valid = false;
-        //         $err_mail = "Ce mail existe déjà !";
-        //     }
-        // }
-       
-       
-       
+        function passwordValid($password){
+            if(preg_match(" ([A-Za-z0-9]) ", $password)) {
+                return true;
+                
+             }else{
+                 return false;
+             }
+        }
+        if (!passwordValid($password)){
+            $valid = false;
+            $_SESSION['err_password'] = Constant::$passwordsNotAlphanumerique;
+         }
+         
+        
+          function isValidEmail($mail)
+          {
+             if(preg_match(" /^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/ ", $mail)) {
+                 return true;
+             } else {
+                 return false;
+             }
+         }
+         if (!isValidEmail($mail)){
+            $valid = false;
+            $_SESSION['err_mail'] = Constant::$emailInvalid;
+         }
+        
        
         if(empty($nom)){
             $valid = false;
@@ -96,7 +97,7 @@ if(!empty($_POST)){
         }
       
         $verif_ville = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17);
-        // "Montpellier", "Béziers", "Sète", "Agde", "Lunel", "Frontignan", "Castelnau-le-Lez", "Mauguio", "Lattes", "Mèze", "Juvignac", "Le Crès", "Grabels", "Pérols", "Lavérune", "Saint-Jean-de-Védas", "Jacou"
+       
         
         if(!in_array($ville, $verif_ville)){
             $valid = false;
@@ -125,10 +126,13 @@ if(!empty($_POST)){
           
            $req = $BDD->prepare("INSERT INTO utilisateurs (pseudo, mail, password, nom, prenom, date_naissance, date_inscription, ville) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
            $req->execute(array($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription, $ville));
+           header('Location: /');
          }else{
              $_SESSION["pseudo"] = $pseudo;
-            //  $_SESSION["pseudo"] = $pseudo;
-            //  $_SESSION["pseudo"] = $pseudo;
+             $_SESSION["nom"] = $nom;
+             $_SESSION["prenom"] = $prenom;
+             $_SESSION["mail"] = $mail;
+             $_SESSION["password"] = $password;
          }
      }
      
