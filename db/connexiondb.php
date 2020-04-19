@@ -46,6 +46,16 @@ class connexionDB {
 
         return !isset($utilisateurs['id']);
     }
+    public function verifMail($mail)
+    {
+        $req = $this->connexion->prepare("SELECT id
+        FROM utilisateurs
+        WHERE mail = ? AND password = ?");
+        $req->execute(array($mail, crypt($password, '$6$rounds=5000$H4eoaj87enek720ndehbelman82jn83nN310$')));
+        $utilisateurs = $req->fetch();
+
+        return !isset($utilisateurs['id']);
+    }
 public function connexion(){
     return $this->connexion;
 }

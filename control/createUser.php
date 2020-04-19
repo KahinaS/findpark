@@ -68,7 +68,7 @@ if(!empty($_POST)){
        
         if(empty($nom)){
             $valid = false;
-            $err_nom = "Veuillez renseigner ce champs !";
+            $err_nom = Constant::$invalid;
         }
         
         if(empty($prenom)){
@@ -126,17 +126,19 @@ if(!empty($_POST)){
           
            $req = $BDD->prepare("INSERT INTO utilisateurs (pseudo, mail, password, nom, prenom, date_naissance, date_inscription, ville) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
            $req->execute(array($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription, $ville));
-           header('Location: /');
+           header("Location: ../index.php");
+           exit;
          }else{
              $_SESSION["pseudo"] = $pseudo;
              $_SESSION["nom"] = $nom;
              $_SESSION["prenom"] = $prenom;
              $_SESSION["mail"] = $mail;
              $_SESSION["password"] = $password;
+             header("Location: ../view/inscription.php");
          }
      }
      
-     header("Location: ../view/inscription.php");
+     
 }
 
  ?>

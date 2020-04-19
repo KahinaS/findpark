@@ -1,6 +1,7 @@
 <?php
+session_start();
 include "head.php";
-include_once("BDD/connexiondb.php");
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,21 +10,57 @@ include_once("BDD/connexiondb.php");
   <meta charset="UTF-8">
 
  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ 
   <title>Connexion</title>
  
 </head>
 
 <body>
   <nav class="navbar" href="/">
-    <h1 class="navbar ml-2">FindPark <p>Montpellier</p></h2>
+  <h1 class="navbar ml-2"><a href="../index.php">FindPark<p>Montpellier</a></p> </h1>
     <p class="navbar">Connexion</p>
    </nav>
   <?php
   include "scriptbootstrap.php";
   ?>
+  <section class='container'>
+
+<div class='row'>
+
+    <div class="col-lg-6">
+       
+    <div class="form-group" >
+    <form role="form" method='post' action="../control/connectUser.php">
+                    <?php
+                    if(isset($_SESSION["err_mail"])){
+                    echo $_SESSION["err_mail"];
+                }
+                    ?>
+                        <label class="text-light">Email</label>
+                        <div class="col-sm-8">
+                            <input type="mail" class="form-control" name="mail" id="email" value="<?php if(isset($nom)){echo $nom;}?>" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    <?php
+                    if(isset($_SESSION["err_password"])){
+                    echo $_SESSION["err_password"];
+                }
+                    ?>
+                        <label class="text-light">Mot de passe</label>
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control" name="password" required>
+                        </div>
+                    </div>
+        </div>
+        </form>
+        </div>
+        <div class="btn btn-outline-info">
+                <input type="submit" name="connexion" value="Se connecter">
+                </div>
+        </section>
+        <?php
+          include "scriptbootstrap.php";
+        ?>
   </body>
   </html>
