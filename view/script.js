@@ -55,7 +55,7 @@ function trouverPlacesLibresMap(marker) {
 	requeteHTTP.send(null);
 	let reponse = requeteHTTP.responseXML;
 	if (reponse === null) {
-		alert("Données non disponibles");
+		// alert("Données non disponibles");
 	} else {
 		let placesDisponibles = reponse.childNodes[0].children[3].textContent.toString();
 		/* response.childNodes[0] ---> racine
