@@ -75,7 +75,7 @@ function initMap() {
 		center: Montpellier
 	});
 	
-	let icons = 'http://maps.google.com/mapfiles/kml/paddle/blu-circle.png';
+	let icons = 'images/pinParkP.png';
 
 	var trafficLayer = new google.maps.TrafficLayer();
 	trafficLayer.setMap(map);
