@@ -24,7 +24,7 @@ if(!empty($_POST)){
             $err_password = "Veuillez renseigner ce champs !";
         }
        if($valid){
-           header("Location:/");
+           header("Location:../index.php");
            exit;
        }
      }
