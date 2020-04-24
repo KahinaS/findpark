@@ -31,6 +31,7 @@ include "head.php";
        
     <div class="form-group" >
     <form role="form" method='post' action="../control/connectUser.php">
+                   
                     <?php
                     if(isset($_SESSION["err_mail"])){
                     echo $_SESSION["err_mail"];

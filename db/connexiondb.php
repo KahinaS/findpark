@@ -32,45 +32,19 @@ class connexionDB {
         $req->execute(array($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription, $ville));
        
     }
-    public function isLoginFree($pseudo)
+    public function verifMailPw($mail,$password)
     {
-        $req = $this->connexion->prepare("SELECT id
-        FROM utilisateurs
-        WHERE pseudo = ?");
-        $req->execute(array($pseudo));
-        $utilisateurs = $req->fetch();
-
-        return !isset($utilisateurs['id']);
-    }
-    
-
-    public function isMailFree($mail)
-    {
-        $req = $this->connexion->prepare("SELECT id
-        FROM utilisateurs
-        WHERE mail = ?");
-        $req->execute(array($mail));
-        $utilisateurs = $req->fetch();
-
-        return !isset($utilisateurs['id']);
-    }
-    public function verifMailPw($mail)
-    {
-        $req = $this->connexion->prepare("SELECT id
+        $req = $this->connexion->prepare("SELECT *
         FROM utilisateurs
         WHERE mail = ? AND password = ?");
         $req->execute(array($mail, crypt($password, '$6$rounds=5000$H4eoaj87enek720ndehbelman82jn83nN310$')));
         $utilisateurs = $req->fetch();
+        $_SESSION['pseudo'] = $utilisateurs['pseudo'];
+        
 
         return !isset($utilisateurs['id']);
     }
-    public function verifId($pseudo){
-        $req = $this->connexion->prepare("SELECT * FROM utilisateurs WHERE id = ?");
-        $req->execute(array($pseudo));
-        $utilisateurs = $req->fetch();
-        $_SESSION['pseudo'] = $utilisateurs['pseudo'];
-        return isset($utilisateurs['id']);
-    }
+ 
 public function connexion(){
     return $this->connexion;
 }

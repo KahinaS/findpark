@@ -37,7 +37,8 @@ session_start();
 
       <div class="d-flex justify-content-end">
         <?php
-        if(isset($_SESSION['id'])){
+		
+        if(isset( $_SESSION['pseudo'])){
           echo "Bienvenue" . $_SESSION['pseudo'];
         }else{
           ?>

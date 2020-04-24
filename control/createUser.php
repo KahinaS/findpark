@@ -2,6 +2,7 @@
 session_start();
 $_SESSION = array();
 include_once("../db/connexiondb.php");
+include_once("../db/createUserdb.php");
 include_once("Constante.php");
 if(!empty($_POST)){
     extract($_POST);

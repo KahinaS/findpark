@@ -9,6 +9,7 @@ if(!empty($_POST)){
      if(isset($_POST['connexion'])){
          $mail = (String) trim($mail);
          $password = (String) trim($password);
+        
          if(empty($mail)){
             $valid = false;
             $err_mail = "Veuillez renseigner ce champs !";
@@ -17,7 +18,8 @@ if(!empty($_POST)){
                 $err_password = "Veuillez renseigner ce champs !";
             }
         }else{
-            if(!$DB->verifMailPw($mail, $password)){
+           
+            if($DB->verifMailPw($mail, $password)){
                 $valid = false;
                $_SESSION["err_mail"] = Constant::$emailInvalid;
                $_SESSION["err_password"] = Constant::$pwInvalid;
@@ -27,9 +29,11 @@ if(!empty($_POST)){
         }
       
        if($valid){
-           $DB->verifId($pseudo);
+           
+          
+
            header("Location:../index.php");
-           exit;
+        
        }
      }
     }
