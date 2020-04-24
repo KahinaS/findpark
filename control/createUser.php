@@ -120,21 +120,18 @@ if(!empty($_POST)){
             $date_naissance = $annee . '-' . $mois . '-' . $jour;
         }
        
-         if($valid){
-           $date_inscription = date("Y-m-d"); $password = crypt($password, '$6$rounds=5000$H4eoaj87enek720ndehbelman82jn83nN310$');
-           
-          
-           $req = $BDD->prepare("INSERT INTO utilisateurs (pseudo, mail, password, nom, prenom, date_naissance, date_inscription, ville) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-           $req->execute(array($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription, $ville));
-           header("Location: ../index.php");
-           exit;
-         }else{
-             $_SESSION["pseudo"] = $pseudo;
-             $_SESSION["nom"] = $nom;
-             $_SESSION["prenom"] = $prenom;
-             $_SESSION["mail"] = $mail;
-             $_SESSION["password"] = $password;
-             header("Location: ../view/inscription.php");
+        if($valid){
+            $DB->inscription($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription, $ville);
+            
+            header("Location: ../index.php");
+            exit;  
+        }else{
+            $_SESSION["pseudo"] = $pseudo;
+            $_SESSION["nom"] = $nom;
+            $_SESSION["prenom"] = $prenom;
+            $_SESSION["mail"] = $mail;
+            $_SESSION["password"] = $password;
+            header("Location: ../view/inscription.php");
          }
      }
      

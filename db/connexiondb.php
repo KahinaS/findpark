@@ -24,6 +24,14 @@ class connexionDB {
             die();
         }
     }
+    public function inscription($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription, $ville){
+        $date_inscription = date("Y-m-d h:m:s"); $password = crypt($password, '$6$rounds=5000$H4eoaj87enek720ndehbelman82jn83nN310$');
+        
+       
+        $req = $this->connexion->prepare("INSERT INTO utilisateurs (pseudo, mail, password, nom, prenom, date_naissance, date_inscription, ville) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $req->execute(array($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription, $ville));
+       
+    }
     public function isLoginFree($pseudo)
     {
         $req = $this->connexion->prepare("SELECT id
@@ -46,7 +54,7 @@ class connexionDB {
 
         return !isset($utilisateurs['id']);
     }
-    public function verifMail($mail)
+    public function verifMailPw($mail)
     {
         $req = $this->connexion->prepare("SELECT id
         FROM utilisateurs
@@ -55,6 +63,13 @@ class connexionDB {
         $utilisateurs = $req->fetch();
 
         return !isset($utilisateurs['id']);
+    }
+    public function verifId($pseudo){
+        $req = $this->connexion->prepare("SELECT * FROM utilisateurs WHERE id = ?");
+        $req->execute(array($pseudo));
+        $utilisateurs = $req->fetch();
+        $_SESSION['pseudo'] = $utilisateurs['pseudo'];
+        return isset($utilisateurs['id']);
     }
 public function connexion(){
     return $this->connexion;

@@ -53,11 +53,12 @@ include "head.php";
                         </div>
                     </div>
         </div>
-        </form>
-        </div>
         <div class="btn btn-outline-info">
                 <input type="submit" name="connexion" value="Se connecter">
                 </div>
+        </form>
+        </div>
+       
         </section>
         <?php
           include "scriptbootstrap.php";

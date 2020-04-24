@@ -12,19 +12,23 @@ if(!empty($_POST)){
          if(empty($mail)){
             $valid = false;
             $err_mail = "Veuillez renseigner ce champs !";
-        }else{
-            if(!$DB->verifMail($mail)){
+            if(empty($password)){
                 $valid = false;
-               $_SESSION["err_mail"] = Constant::$emailTaken;
+                $err_password = "Veuillez renseigner ce champs !";
+            }
+        }else{
+            if(!$DB->verifMailPw($mail, $password)){
+                $valid = false;
+               $_SESSION["err_mail"] = Constant::$emailInvalid;
+               $_SESSION["err_password"] = Constant::$pwInvalid;
+                header("Location: ../view/connexion.php");
             }      
             
         }
-        if(empty($password)){
-            $valid = false;
-            $err_password = "Veuillez renseigner ce champs !";
-        }
+      
        if($valid){
-           header("Location:/");
+           $DB->verifId($pseudo);
+           header("Location:../index.php");
            exit;
        }
      }
