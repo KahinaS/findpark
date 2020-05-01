@@ -12,10 +12,10 @@ if(!empty($_POST)){
         
          if(empty($mail)){
             $valid = false;
-            $err_mail = "Veuillez renseigner ce champs !";
+            $err_mail = Constant::$invalid;
             if(empty($password)){
                 $valid = false;
-                $err_password = "Veuillez renseigner ce champs !";
+                $err_password = Constant::$invalid ;
             }
         }else{
            

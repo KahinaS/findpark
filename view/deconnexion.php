@@ -4,8 +4,8 @@
     if ($_POST) {
         
         unset($_SESSION[$utilisateurs['id']]);
-        header("Location: ../index.php");
-
+        header("Location: ./index.php");
+        session_destroy();
     }
 
 

@@ -1,12 +1,13 @@
 <?php
-class connexionDB {
+include_once("createUserdb.php");
+ class connexionDB extends inscriptionDB{
     private $host    ='localhost';
     private $name    ='formulaire';
     private $user    ='root';
     private $pass   = '';
-    private $connexion;
+    public $connexion;
 
-    function __construct($host = null, $name = null, $user = null, $pass = null){
+     function __construct($host = null, $name = null, $user = null, $pass = null){
         if($host != null){
             $this->host = $host;
             $this->name = $name;
@@ -24,14 +25,7 @@ class connexionDB {
             die();
         }
     }
-    public function inscription($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription, $ville){
-        $date_inscription = date("Y-m-d h:m:s"); $password = crypt($password, '$6$rounds=5000$H4eoaj87enek720ndehbelman82jn83nN310$');
-        
-       
-        $req = $this->connexion->prepare("INSERT INTO utilisateurs (pseudo, mail, password, nom, prenom, date_naissance, date_inscription, ville) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $req->execute(array($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription, $ville));
-       
-    }
+   
     public function verifMailPw($mail,$password)
     {
         $req = $this->connexion->prepare("SELECT *
@@ -44,11 +38,12 @@ class connexionDB {
 
         return !isset($utilisateurs['id']);
     }
- 
-public function connexion(){
-    return $this->connexion;
+    public function connexion(){
+        return $this->connexion;
+        }
 }
-}
-$DB = new connexionDB;
+
+$DB = new connexionDB();
 $BDD = $DB->connexion();
+
 ?>

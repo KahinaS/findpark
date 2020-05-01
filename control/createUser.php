@@ -21,7 +21,7 @@ if(!empty($_POST)){
     
          if(empty($pseudo)){
              $valid = false;
-             $err_pseudo = "Veuillez renseigner ce champs !";
+             $err_pseudo = Constant::$invalid;
          }else{
              if(!$DB->isLoginFree($pseudo)){
                  $valid = false;
@@ -31,9 +31,9 @@ if(!empty($_POST)){
          
          if(empty($mail)){
             $valid = false;
-            $err_mail = "Veuillez renseigner ce champs !";
+            $err_mail = Constant::$invalid;
         }else{
-            if(!$DB->isLoginFree($mail)){
+            if(!$DB->isMailFree($mail)){
                 $valid = false;
                $_SESSION["err_mail"] = Constant::$emailTaken;
             }      
@@ -74,27 +74,27 @@ if(!empty($_POST)){
         
         if(empty($prenom)){
             $valid = false;
-            $err_prenom = "Veuillez renseigner ce champs !";
+            $err_prenom = Constant::$invalid;
         }
         
         if(empty($password)){
             $valid = false;
-            $err_password = "Veuillez renseigner ce champs !";
+            $err_password = Constant::$invalid;
         }
        
         if($jour < 1 || $jour > 31) {
             $valid = false;
-            $err_jour = "Veuillez renseigner ce champs !";
+            $err_jour = Constant::$invalid;
         }
       
         if($mois < 1 || $mois > 12) {
             $valid = false;
-            $err_mois = "Veuillez renseigner ce champs !";
+            $err_mois = Constant::$invalid;
         }
       
         if($annee < 1930 || $annee > 2002) {
             $valid = false;
-            $err_annee = "Veuillez renseigner ce champs !";
+            $err_annee = Constant::$invalid;
         }
       
         $verif_ville = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17);
@@ -102,7 +102,7 @@ if(!empty($_POST)){
         
         if(!in_array($ville, $verif_ville)){
             $valid = false;
-            $err_ville = "Veuillez renseigner ce champs !";
+            $err_ville = Constant::$invalid;
         
          }
          else{
