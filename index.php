@@ -39,7 +39,9 @@ session_start();
         <?php
 		
         if(isset( $_SESSION['pseudo'])){
-          echo "Bienvenue" . $_SESSION['pseudo'];
+		  echo "Bienvenue" . $_SESSION['pseudo'];
+		  include("./view/deconnexion.php");
+		  
         }else{
           ?>
           <button class="mr-4 rounded ">
