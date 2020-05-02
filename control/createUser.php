@@ -2,7 +2,7 @@
 session_start();
 $_SESSION = array();
 include_once("../db/connexiondb.php");
-include_once("../db/createUserdb.php");
+include_once("../db/UserRepository.php");
 include_once("Constante.php");
 if(!empty($_POST)){
     extract($_POST);
@@ -23,7 +23,7 @@ if(!empty($_POST)){
              $valid = false;
              $err_pseudo = Constant::$invalid;
          }else{
-             if(!$DB->isLoginFree($pseudo)){
+             if(!$handler->isLoginFree($pseudo, $BDD)){
                  $valid = false;
                 $_SESSION["err_pseudo"] = Constant::$usernameTaken;
              }     
@@ -33,7 +33,7 @@ if(!empty($_POST)){
             $valid = false;
             $err_mail = Constant::$invalid;
         }else{
-            if(!$DB->isMailFree($mail)){
+            if(!$handler->isMailFree($mail, $BDD)){
                 $valid = false;
                $_SESSION["err_mail"] = Constant::$emailTaken;
             }      
@@ -122,7 +122,7 @@ if(!empty($_POST)){
         }
        
         if($valid){
-            $DB->inscription($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription, $ville);
+            $handler->inscription($pseudo, $mail, $password, $nom, $prenom, $date_naissance, $date_inscription, $ville, $BDD);
             
             header("Location: ../index.php");
             exit;  
