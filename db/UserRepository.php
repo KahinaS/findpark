@@ -34,6 +34,21 @@ class UserRepository {
 
         return !isset($utilisateurs['id']);
     }
+    public function verifMailPw($mail,$password, $connexion)
+    {
+        $req = $connexion->prepare("SELECT *
+        FROM utilisateurs
+        WHERE mail = ? AND password = ?");
+        $req->execute(array($mail, crypt($password, '$6$rounds=5000$H4eoaj87enek720ndehbelman82jn83nN310$')));
+        $utilisateurs = $req->fetch();
+        $_SESSION['pseudo'] = $utilisateurs['pseudo'];
+        $_SESSION['mail'] = $utilisateurs['mail'];
+        $_SESSION['prenom'] = $utilisateurs['prenom'];
+        $_SESSION['nom'] = $utilisateurs['nom'];
+        $_SESSION['ville'] = $utilisateurs['ville'];
+        $_SESSION['date_naissance'] = $utilisateurs['date_naissance'];
+        return !isset($utilisateurs['id']);
+    }
 }
 
 $handler = new UserRepository();

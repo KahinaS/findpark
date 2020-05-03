@@ -39,9 +39,12 @@ session_start();
         <?php
 		
         if(isset( $_SESSION['pseudo'])){
-		  echo "Bienvenue" . $_SESSION['pseudo'];
-		  include("./view/deconnexion.php");
+		 
+		  echo "<p class='mr-3'>Bienvenue " . $_SESSION['pseudo']."</p>";
 		  
+		  echo '<form action="./view/profil.php" method="post"><button class="btn btn-outline-primary mr-3"> Profil</button></form>';
+		  include("./view/deconnexion.php");
+		 
         }else{
           ?>
           <button class="mr-4 rounded ">
@@ -119,7 +122,7 @@ session_start();
 	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
 	<div id="map"></div>
 
-	<script src="view/script.js"></script>
+	<!-- <script src="view/script.js"></script> -->
 
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=initMap&libraries=places" type="text/javascript"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

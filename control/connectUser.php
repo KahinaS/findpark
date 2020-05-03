@@ -2,6 +2,7 @@
 session_start();
 $_SESSION = array();
 include_once("../db/connexiondb.php");
+include_once("../db/UserRepository.php");
 include_once("Constante.php");
 if(!empty($_POST)){
     extract($_POST);
@@ -17,11 +18,19 @@ if(!empty($_POST)){
                 $valid = false;
                 $err_password = Constant::$invalid ;
             }
+               
+            
         }else{
+            if($handler->isMailFree($mail, $BDD)){
+                $valid = false;
+               $_SESSION["err_mail"] = Constant::$emailExist;
+               header("Location: ../view/connexion.php");
+            } 
            
-            if($DB->verifMailPw($mail, $password)){
+           else if($handler->verifMailPw($mail, $password,$BDD)){
                 $valid = false;
                $_SESSION["err_mail"] = Constant::$emailInvalid;
+               
                $_SESSION["err_password"] = Constant::$pwInvalid;
                 header("Location: ../view/connexion.php");
             }      
@@ -29,7 +38,7 @@ if(!empty($_POST)){
         }
       
        if($valid){
-           
+       
           
 
            header("Location:../index.php");

@@ -12,8 +12,8 @@
 
 ?>
 <form method="post">
-    <button name="deconnexion">
+    <button class="btn btn-outline-primary" name="deconnexion"><a>
         Déconnexion
-    </button>
+    </a></button>
 </form>
 
